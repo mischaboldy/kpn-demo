@@ -81,10 +81,6 @@ export default Vue.extend({
 .content {
   width: 1168px;
 
-  //display: flex;
-  //flex-direction: column;
-  //align-items: center;
-
   @media (max-width: 1168px) {
     margin: 0 32px;
   }
