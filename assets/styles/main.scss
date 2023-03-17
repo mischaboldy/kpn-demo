@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  font-family: Dax, 'sans-serif';
+  background: rgb(243,243,243);
+  background: linear-gradient(90deg, rgba(243,243,243,1) 0%, rgba(232,227,227,1) 100%);
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Dax';
+  font-weight: 300;
+  src: local('Dax Light'), url(assets/fonts/Dax-Light.ttf) format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Dax';
+  src: local('Dax'), url(assets/fonts/Dax-Medium.ttf) format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Dax';
+  font-weight: bold;
+  src: local('Dax Bold'), url(assets/fonts/Dax-Bold.ttf) format('truetype');
+  font-display: swap;
+}
