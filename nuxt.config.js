@@ -14,6 +14,14 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  serverMiddleware: {
+    '/api': '~/server',
+  },
+
+  publicRuntimeConfig: {
+    apiBaseUrl: process.env.API_BASE_URL,
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
