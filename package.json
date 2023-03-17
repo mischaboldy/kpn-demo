@@ -14,7 +14,6 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.**": "prettier --check --ignore-unknown",
     "*.{js,ts,vue,css,md}": "prettier --write"
   },
   "dependencies": {
@@ -38,6 +37,8 @@
     "eslint-plugin-vue": "^9.5.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "sass": "^1.59.3",
+    "sass-loader": "^10"
   }
 }
