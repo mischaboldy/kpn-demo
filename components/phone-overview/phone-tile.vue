@@ -4,7 +4,7 @@
       <button
         v-for="(color, index) in phone.colors"
         class="orb"
-        :class="colorMap[color]"
+        :class="[colorMap[color], { active: index === selectedColorIndex }]"
         @click="changeColor(index)"
       />
     </div>
@@ -29,13 +29,7 @@ import Vue, { PropType } from 'vue'
 import { PhoneService } from '~/api/PhoneService'
 import { PhoneInterface } from '~/interfaces/PhoneInterface'
 
-const idMap = {
-  0: 6043830,
-  1: 6043829,
-  2: 6043827,
-  3: 8649599,
-  4: 6043823,
-}
+const isList = [6043830, 6043829, 6043827, 8649599, 6043823]
 
 export default Vue.extend({
   props: {
@@ -46,6 +40,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      selectedColorIndex: 0,
       colorMap: {
         BLAUW: 'blue',
         ROZE: 'pink',
@@ -72,9 +67,8 @@ export default Vue.extend({
   },
   methods: {
     changeColor(index: number) {
-      this.imageSource = `https://www.kpn.com/shop/cdn/products/_/product_${
-        idMap[index as keyof typeof idMap]
-      }_main.png`
+      this.imageSource = `https://www.kpn.com/shop/cdn/products/_/product_${isList[index]}_main.png`
+      this.selectedColorIndex = index
     },
   },
   computed: {
@@ -111,11 +105,19 @@ export default Vue.extend({
   z-index: 10;
 
   .orb {
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
     border-radius: 50%;
     background-color: red;
     border: 0.5px solid #e3e3e3;
+    box-shadow: inset 0 2px 0 #ffffff, inset -2px 0 0 #ffffff,
+      inset 0 -2px 0 #ffffff, inset 2px 0 0 #ffffff,
+      inset -0.5px 0.5px 0 #ffffff, inset 0.5px -0.5px 0 #ffffff,
+      inset 0.5px -0.5px 0 #ffffff, inset 0.5px 0.5px 0 #ffffff;
+
+    &.active {
+      border: 1px solid #000000;
+    }
 
     &:hover {
       opacity: 0.7;
